@@ -1,0 +1,110 @@
+# Task Manager (MERN Stack)
+
+A simple full-stack Task Manager application built using the MERN stack. The app allows users to create, view, update, and delete tasks. It demonstrates basic CRUD operations with a React frontend and a Node.js + Express backend connected to MongoDB.
+
+## Features
+
+* Add new tasks
+* View all tasks
+* Mark tasks as completed
+* Delete tasks
+* Responsive UI
+* REST API integration
+
+## Tech Stack
+
+Frontend
+
+* React
+* Axios
+* CSS
+
+Backend
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+
+Tools
+
+* Git & GitHub
+
+## Project Structure
+
+```
+task-manager-mern
+│
+├── backend
+│   ├── models
+│   ├── routes
+│   ├── server.js
+│   └── .env
+│
+└── Frontend
+    ├── src
+    ├── public
+    └── package.json
+```
+
+## Installation
+
+Clone the repository
+
+```
+git clone https://github.com/vijaydev-07/task-manager-mern.git
+```
+
+Go to the project folder
+
+```
+cd task-manager-mern
+```
+
+### Backend Setup
+
+```
+cd backend
+npm install
+```
+
+Create a `.env` file
+
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+```
+
+Run the backend
+
+```
+npm start
+```
+
+### Frontend Setup
+
+Open a new terminal
+
+```
+cd Frontend
+npm install
+npm run dev
+```
+
+## API Endpoint
+
+```
+GET     /api/tasks
+POST    /api/tasks
+PUT     /api/tasks/:id
+DELETE  /api/tasks/:id
+```
+
+## Live Project
+
+Frontend: (add your frontend link here)
+Backend: https://task-manager-3i9u.onrender.com
+
+## Author
+
+Vijay Dinanath Harijan
