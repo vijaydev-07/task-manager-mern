@@ -18,7 +18,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.send(`
         <div style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
-            <h1>Task Manager API is Live! 🚀</h1>
+            <h1>Task Manager API</h1>
             <p style="font-size: 1.2rem;">To perform CRUD operations, please use the following endpoint:</p>
             <div style="margin: 20px 0;">
                 <code style="background: #f4f4f4; padding: 12px 20px; border-radius: 8px; font-size: 1.1rem; border: 1px solid #ddd; color: #d63384; display: inline-block;">
