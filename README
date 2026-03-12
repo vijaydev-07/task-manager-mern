@@ -1,70 +1,81 @@
-# Task Manager (MERN Stack)
+# Task Manager Backend API (Node.js, Express, MongoDB)
 
-A simple full-stack Task Manager application built using the MERN stack. The app allows users to create, view, update, and delete tasks. It demonstrates basic CRUD operations with a React frontend and a Node.js + Express backend connected to MongoDB.
+A RESTful Task Manager API built using Node.js, Express.js, and MongoDB.
+This project demonstrates basic CRUD (Create, Read, Update, Delete) operations for managing tasks.
+
+The API allows users to create tasks, retrieve all tasks, update task status, and delete tasks. It follows a clean backend architecture with separate folders for configuration, models, and routes.
+
+---
 
 ## Features
 
-* Add new tasks
-* View all tasks
-* Mark tasks as completed
-* Delete tasks
-* Responsive UI
-* REST API integration
+• Create new tasks
+• Get all tasks
+• Update task status (mark task as completed)
+• Delete tasks
+• RESTful API structure
+• MongoDB database integration
+• Clean and scalable backend architecture
+
+---
 
 ## Tech Stack
 
-Frontend
+### Backend
 
-* React
-* Axios
-* CSS
+• Node.js
+• Express.js
+• MongoDB
+• Mongoose
 
-Backend
+### Tools
 
-* Node.js
-* Express.js
-* MongoDB
-* Mongoose
+• Git
+• GitHub
+• Thunder Client / Postman (API testing)
 
-Tools
-
-* Git & GitHub
+---
 
 ## Project Structure
 
 ```
-task-manager-mern
+task-manager-backend
 │
-├── backend
-│   ├── models
-│   ├── routes
-│   ├── server.js
-│   └── .env
+├── config
+│   └── db.js                 # MongoDB database connection
 │
-└── Frontend
-    ├── src
-    ├── public
-    └── package.json
+├── models
+│   └── Task.js               # Mongoose schema for tasks
+│
+├── routes
+│   └── taskRoutes.js         # API routes for task CRUD operations
+│
+├── server.js                 # Main server entry point
+├── package.json              # Project dependencies and scripts
+├── package-lock.json         # Dependency lock file
+├── .env                      # Environment variables
+└── README.md                 # Project documentation
 ```
+
+---
 
 ## Installation
 
 Clone the repository
 
 ```
-git clone https://github.com/vijaydev-07/task-manager-mern.git
+git clone https://github.com/vijaydev-07/task-manager-backend.git
 ```
 
 Go to the project folder
 
 ```
-cd task-manager-mern
+cd task-manager-backend
 ```
 
-### Backend Setup
+Install dependencies
 
 ```
-cd backend
 npm install
 ```
 
@@ -75,35 +86,58 @@ PORT=5000
 MONGO_URI=your_mongodb_connection_string
 ```
 
-Run the backend
+Start the server
 
 ```
 npm start
 ```
 
-### Frontend Setup
-
-Open a new terminal
+The server will run on:
 
 ```
-cd Frontend
-npm install
-npm run dev
+http://localhost:5000
 ```
 
-## API Endpoint
+---
+
+## API Endpoints
+
+Create Task
 
 ```
-GET     /api/tasks
-POST    /api/tasks
-PUT     /api/tasks/:id
-DELETE  /api/tasks/:id
+POST /api/tasks
 ```
 
-## Live Project
+Get All Tasks
 
-Frontend: (add your frontend link here)
-Backend: https://task-manager-3i9u.onrender.com
+```
+GET /api/tasks
+```
+
+Update Task
+
+```
+PUT /api/tasks/:id
+```
+
+Delete Task
+
+```
+DELETE /api/tasks/:id
+```
+
+---
+
+## Testing the API
+
+You can test the API using:
+
+• Thunder Client (VS Code extension)
+• Postman
+
+These tools allow you to send HTTP requests and verify CRUD operations.
+
+---
 
 ## Author
 
