@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
+const authMiddleware = require("../middleware/authMiddleware");
+const roleMiddleware = require("../middleware/roleMiddleware");
+
 const {
     getTasks,
     createTask,
@@ -8,9 +11,12 @@ const {
     deleteTask
 } = require("../Controllers/taskControllers");
 
-router.get("/", getTasks);
-router.post("/", createTask);
-router.put("/:id", updateTask);
-router.delete("/:id", deleteTask);
+// Basic CRUD routes
+router.get("/", authMiddleware, getTasks);
+router.post("/", authMiddleware, createTask);
+router.put("/:id", authMiddleware, updateTask);
+
+// Restricted: Only admins can remove tasks
+router.delete("/:id", authMiddleware, roleMiddleware("admin"), deleteTask);
 
 module.exports = router;

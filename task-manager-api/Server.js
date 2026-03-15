@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 
 const connectDB = require("./config/db");
 const taskRoutes = require("./Routes/taskRoutes");
+const authRoutes = require("./Routes/authRoutes");
 
 dotenv.config();
 
@@ -12,25 +13,28 @@ const PORT = process.env.PORT || 5000;
 
 connectDB();
 
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
     res.send(`
-        <div style="font-family: Arial, sans-serif; text-align: center; padding: 50px;">
-            <h1>Task Manager API</h1>
-            <p style="font-size: 1.2rem;">To perform CRUD operations, please use the following endpoint:</p>
-            <div style="margin: 20px 0;">
-                <code style="background: #f4f4f4; padding: 12px 20px; border-radius: 8px; font-size: 1.1rem; border: 1px solid #ddd; color: #d63384; display: inline-block;">
-                    https://task-manager-backend-y38o.onrender.com/api/tasks
+        <div style="font-family: sans-serif; text-align: center; padding: 50px;">
+            <h1>🚀 Task Manager API</h1>
+            <p>The backend is running successfully.</p>
+            <div style="margin-top: 20px;">
+                <code style="background: #eee; padding: 10px; border-radius: 5px; color: #d63384;">
+                    /api/tasks
                 </code>
             </div>
         </div>
     `);
 });
 
+// Route connections
+app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
 
 app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is live on port ${PORT}`);
 });
