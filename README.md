@@ -1,117 +1,162 @@
 # Task Manager API (Node.js, Express, MongoDB)
 
-A RESTful Task Manager API built using Node.js, Express.js, and MongoDB. This project demonstrates secure CRUD operations for managing tasks with advanced authentication and role-based permissions.
+A RESTful Task Manager API built using **Node.js, Express.js, and MongoDB**.  
+This project demonstrates secure **CRUD operations** for managing tasks with authentication and role-based permissions.
 
 ---
 
 ## 🌐 Live API Endpoint
 
-You can test this API live using the base URL provided below:
-**Base URL:** https://task-manager-backend-y38o.onrender.com
+You can test this API live using the base URL below:
+
+**Base URL**
+
+```
+https://task-manager-backend-y38o.onrender.com
+```
 
 ---
 
-## Features
+# Features
 
-• User Registration & Login (JWT Authentication)
-• Role-Based Access Control (Admin vs User)
-• Password hashing using bcrypt
-• Create and manage tasks
-• Update task status (mark as completed)
-• Delete tasks (Restricted to Admin only)
-• Protected routes using custom middleware
-• RESTful API architecture
-• MongoDB database integration
-
----
-
-## Tech Stack
-
-### Backend
-• Node.js, Express.js, MongoDB, Mongoose
-
-### Authentication & Security
-• JSON Web Token (JWT)
-• bcrypt (Password Hashing)
-• Role-based Authorization (RBAC)
-
-### Tools
-• Git, GitHub, Thunder Client / Postman (API testing)
+- User Registration & Login (JWT Authentication)
+- Role-Based Access Control (Admin vs User)
+- Password hashing using bcrypt
+- Create and manage tasks
+- Update task status
+- Delete tasks (Admin only)
+- Protected routes using middleware
+- RESTful API architecture
+- MongoDB database integration
 
 ---
 
-## Project Structure
+# Tech Stack
 
+## Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+
+## Authentication & Security
+
+- JSON Web Token (JWT)
+- bcrypt (Password Hashing)
+- Role-based Authorization (RBAC)
+
+## Tools
+
+- Git
+- GitHub
+- Thunder Client / Postman
+
+---
+
+# Project Structure
+
+```
 task-manager-api/
 │
 ├── config/
-│   └── db.js                    # MongoDB database connection
+│   └── db.js                # MongoDB database connection
 │
 ├── Controllers/
-│   ├── authControllers.js       # Authentication logic
-│   └── taskControllers.js       # Task CRUD operations
+│   ├── authControllers.js  # Authentication logic
+│   └── taskControllers.js  # Task CRUD operations
 │
 ├── Models/
-│   ├── User.js                  # User schema with roles
-│   └── Task.js                  # Task schema
+│   ├── User.js             # User schema with roles
+│   └── Task.js             # Task schema
 │
 ├── Routes/
-│   ├── authRoutes.js            # Auth endpoints
-│   └── taskRoutes.js            # Task endpoints (Protected)
+│   ├── authRoutes.js       # Authentication routes
+│   └── taskRoutes.js       # Task routes
 │
 ├── middleware/
-│   ├── authMiddleware.js        # JWT verification
-│   └── roleMiddleware.js        # Admin/User access control
+│   ├── authMiddleware.js   # JWT verification
+│   └── roleMiddleware.js   # Role-based access control
 │
-├── .env                         # Secret environment variables
-├── package.json                 # Dependencies & scripts
-└── Server.js                    # Main server entry point
+├── .env                    # Environment variables
+├── package.json            # Dependencies and scripts
+└── Server.js               # Main server entry point
+```
 
 ---
 
-## Installation
+# Installation
 
-1. Clone the repository:
+### 1️⃣ Clone the repository
+
+```
 git clone https://github.com/vijaydev-07/task-manager-api.git
+```
 
-2. Go to the project folder:
+### 2️⃣ Go to project folder
+
+```
 cd task-manager-api
+```
 
-3. Install dependencies:
+### 3️⃣ Install dependencies
+
+```
 npm install
+```
 
-4. Create a .env file:
+### 4️⃣ Create `.env` file
+
+```
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_secret_key
+```
 
-5. Start the server:
+### 5️⃣ Start server
+
+```
 npm start
+```
 
 ---
 
-## API Endpoints
+# API Endpoints
 
-### Authentication
-• POST /api/auth/register (Registers as 'user' by default)
-• POST /api/auth/login (Returns JWT Token)
+## Authentication
 
-### Tasks (Protected - Requires JWT)
-• GET /api/tasks (Accessible by User & Admin)
-• POST /api/tasks (Accessible by User & Admin)
-• PUT /api/tasks/:id (Accessible by User & Admin)
-• DELETE /api/tasks/:id (Admin only)
+POST `/api/auth/register`  
+Register a new user
+
+POST `/api/auth/login`  
+Login user and return JWT token
 
 ---
 
-## Testing the API
+## Tasks (Protected Routes)
 
-1. **Register/Login:** Get your JWT Token.
-2. **Setup Header:** In Postman/Thunder Client, go to 'Auth' and select 'Bearer Token'.
-3. **Role Check:** Users can manage tasks, but only users with `role: "admin"` in the database can perform DELETE operations.
+GET `/api/tasks`  
+Get all tasks
+
+POST `/api/tasks`  
+Create a new task
+
+PUT `/api/tasks/:id`  
+Update a task
+
+DELETE `/api/tasks/:id`  
+Delete a task (Admin only)
 
 ---
 
-## Author
+# Testing the API
 
-Vijay Dinanath Harijan
+1. Register/Login to get JWT token  
+2. Use **Bearer Token** in Postman or Thunder Client  
+3. Only users with `role: "admin"` can delete tasks
+
+---
+
+# Author
+
+**Vijay Dinanath Harijan**
